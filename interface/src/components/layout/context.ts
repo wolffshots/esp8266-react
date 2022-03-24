@@ -1,26 +1,25 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext } from "react";
 
 export interface LayoutContextValue {
-  title: string;
-  setTitle: (title: string) => void;
+	title: string;
+	setTitle: (title: string) => void;
 }
 
 const LayoutContextDefaultValue = {} as LayoutContextValue;
-export const LayoutContext = React.createContext(
-  LayoutContextDefaultValue
-);
+export const LayoutContext = React.createContext(LayoutContextDefaultValue);
 
 export const useLayoutTitle = (myTitle: string) => {
+	const { title, setTitle } = useContext(LayoutContext);
+	const previousTitle = useRef(title);
 
-  const { title, setTitle } = useContext(LayoutContext);
-  const previousTitle = useRef(title);
+	useEffect(() => {
+		setTitle(myTitle);
+	}, [setTitle, myTitle]);
 
-  useEffect(() => {
-    setTitle(myTitle);
-  }, [setTitle, myTitle]);
-
-  useEffect(() => () => {
-    setTitle(previousTitle.current);
-  }, [setTitle]);
-
+	useEffect(
+		() => () => {
+			setTitle(previousTitle.current);
+		},
+		[setTitle]
+	);
 };

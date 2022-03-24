@@ -1,28 +1,31 @@
+import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
-import React, { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { Tabs, useMediaQuery, useTheme } from '@mui/material';
+import { Tabs, useMediaQuery, useTheme } from "@mui/material";
 
 interface RouterTabsProps {
-  value: string | false;
+	value: string | false;
 }
 
 const RouterTabs: FC<RouterTabsProps> = ({ value, children }) => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const theme = useTheme();
-  const smallDown = useMediaQuery(theme.breakpoints.down('sm'));
+	const theme = useTheme();
+	const smallDown = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleTabChange = (event: React.ChangeEvent<{}>, path: string) => {
-    navigate(path);
-  };
+	const handleTabChange = (event: React.ChangeEvent<{}>, path: string) => {
+		navigate(path);
+	};
 
-  return (
-    <Tabs value={value} onChange={handleTabChange} variant={smallDown ? "scrollable" : "fullWidth"}>
-      {children}
-    </Tabs>
-  );
+	return (
+		<Tabs
+			value={value}
+			onChange={handleTabChange}
+			variant={smallDown ? "scrollable" : "fullWidth"}
+		>
+			{children}
+		</Tabs>
+	);
 };
 
 export default RouterTabs;

@@ -1,4 +1,4 @@
 export interface Me {
-  username: string;
-  admin: boolean;
+	username: string;
+	admin: boolean;
 }
