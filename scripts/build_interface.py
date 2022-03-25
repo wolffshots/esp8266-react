@@ -20,10 +20,11 @@ def flagExists(flag):
 
 def buildWeb():
     os.chdir("interface")
-    print("Building interface with npm")
+    print("Building interface with yarn")
     try:
-        env.Execute("npm install")
-        env.Execute("npm run build")
+        env.Execute("yarn install")
+        env.Execute("yarn format")
+        env.Execute("yarn build")
         buildPath = Path("build")
         wwwPath = Path("../data/www")
         if wwwPath.exists() and wwwPath.is_dir():
@@ -37,7 +38,7 @@ def buildWeb():
     finally:
         os.chdir("..")
 
-if (len(BUILD_TARGETS) == 0 or "upload" in BUILD_TARGETS):
+if (len(BUILD_TARGETS) == 0):
     buildWeb()
 else:
     print("Skipping build interface step for target(s): " + ", ".join(BUILD_TARGETS))
