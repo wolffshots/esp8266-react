@@ -47,7 +47,8 @@ const LightMqttSettingsForm: FC = () => {
 			<>
 				<MessageBox
 					level="info"
-					message="The LED is controllable via MQTT with the demo project designed to work with Home Assistant's auto discovery feature."
+					message="The LED is controllable via MQTT with the demo project
+					designed to work with Home Assistant's auto discovery feature."
 					my={2}
 				/>
 				<ValidatedTextField

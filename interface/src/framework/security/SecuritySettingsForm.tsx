@@ -58,7 +58,8 @@ const SecuritySettingsForm: FC = () => {
 				/>
 				<MessageBox
 					level="info"
-					message="The JWT secret is used to sign authentication tokens. If you modify the JWT Secret, all users will be signed out."
+					message="The JWT secret is used to sign authentication tokens.
+					If you modify the JWT Secret, all users will be signed out."
 					mt={1}
 				/>
 				<ButtonRow mt={2}>

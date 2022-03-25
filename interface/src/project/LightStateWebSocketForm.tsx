@@ -30,7 +30,8 @@ const LightStateWebSocketForm: FC = () => {
 			<>
 				<MessageBox
 					level="info"
-					message="The switch below controls the LED via the WebSocket. It will automatically update whenever the LED state changes."
+					message="The switch below controls the LED via the WebSocket.
+					It will automatically update whenever the LED state changes."
 					my={2}
 				/>
 				<BlockFormControlLabel
